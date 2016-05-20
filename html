@@ -1,0 +1,53 @@
+<html>
+<head>
+	<title>Stimulus Generator</title>
+	<script type="text/javascript">
+		stimGen = function() {
+  		var stimName = document.getElementById("url").value;
+	    var descrip = document.getElementById("stimDescr").value;
+		var name = document.getElementById("name").value;
+  		var str = stimName;
+  		var res = str.replace('https://prime.indeed.com/talent', "https://prime.indeed.com/talent?stimulus=" + name);
+  		document.getElementById("link").innerHTML = "<a href=\"" + res + "\">" + descrip + "</a>";
+  		document.getElementById("url").value = "";
+  		document.getElementById("name").value = "";
+  		document.getElementById("stimDescr").value = "";
+  	}
+	</script>
+	<style>
+		input { 
+			width: 300px;
+		}
+	</style>
+</head>
+<body>
+<div align="center">
+  <br>
+  <br>
+  <table>
+    <tr>
+      <td><font face="arial" size="2">Profile or search URL:</font></td>
+      <td>
+        <input type="text" id="url" placeholder="https://prime.indeed.com/talent#/details/zJPtev5" />
+      </td>
+    </tr>
+    <tr>
+      <td><font face="arial" size="2">Name your stimulus:</font></td>
+      <td>
+        <input type="text" id="name" placeholder="rskinner-matching-May19" />
+      </td>
+    </tr>
+    <tr>
+      <td><font face="arial" size="2">Describe your stimulus:</font></td>
+      <td>
+        <input type="text" id="stimDescr" placeholder="SF Bay Java Engineer, $140k" />
+      </td>
+    </tr>
+  </table>
+  <input type="submit" onclick="stimGen()" />
+
+  <p id="link"></p>
+</div>
+
+</body>
+</html>
